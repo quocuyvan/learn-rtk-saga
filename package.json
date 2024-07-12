@@ -36,6 +36,7 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
+        "freshtall": "npm cache clean --force && rm -rf node_modules && rm -f package-lock.json && npm install && npm i react-error-overlay@6.0.9 --save-dev",
         "fix-overlay": "npm cache clean --force && npm i react-error-overlay@6.0.9 --save-dev"
     },
     "eslintConfig": {

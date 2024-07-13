@@ -6,12 +6,16 @@ import counterReducer from '../features/counter/counterSlice';
 import rootSaga from './rootSaga';
 import { history } from 'utils';
 import dashboardReducer from 'features/dashboard/dashboardSlice';
+import cityReducer from 'features/city/citySlice';
+import studentReducer from 'features/student/studentSlice';
 
 const rootReducer = combineReducers({
     router: connectRouter(history),
     counter: counterReducer,
     auth: authReducer,
     dashboard: dashboardReducer,
+    student: studentReducer,
+    city: cityReducer,
 });
 
 const sagaMiddleware = createSagaMiddleware();

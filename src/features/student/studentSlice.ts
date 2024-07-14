@@ -1,4 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { RootState } from 'app/store';
 import { ListParams, ListResponse, PaginationParams, Student } from 'models';
 
 export interface StudentState {
@@ -26,7 +27,7 @@ const studentSlice = createSlice({
     name: 'student',
     initialState,
     reducers: {
-        fetchStudentList(state) {
+        fetchStudentList(state, action: PayloadAction<ListParams>) {
             state.loading = true;
         },
         fetchStudentListSuccess(state, action: PayloadAction<ListResponse<Student>>) {
@@ -50,6 +51,10 @@ const studentSlice = createSlice({
 export const studentActions = studentSlice.actions;
 
 // Selectors
+export const selectStudentList = (state: RootState) => state.student.list;
+export const selectStudentLoading = (state: RootState) => state.student.loading;
+export const selectStudentFilter = (state: RootState) => state.student.filter;
+export const selectStudentPagination = (state: RootState) => state.student.pagination;
 
 // Reducer
 const studentReducer = studentSlice.reducer;
